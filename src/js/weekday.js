@@ -14,28 +14,17 @@ export default class WeekdayChecker {
         this.leapYears = false;
       }
     }
-  
+  } 
 
-  month () {
-    // const month30Day = ["april", "june", "september", "november"];
-    const monthsArray = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+//   month () {
+//     // const month30Day = ["april", "june", "september", "november"];
+//     const monthsArray = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
 
-  }
+//   }
 
-  day () {
-    const daysArray = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+//   day () {
+//     const daysArray = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
 
-  }
-
-
-
-
-
-
-
-}
-
-//anchor date - June 9, 1969 6/9/69
-
-//monday = 1 - sunday =7
-
+//  }
+// //anchor date - June 9, 1969 6/9/69
+// //monday = 1 - sunday =7
