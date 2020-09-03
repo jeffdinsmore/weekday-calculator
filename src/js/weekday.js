@@ -1,11 +1,12 @@
 // Business Logic
 export default class WeekdayChecker {
-  constructor(days, months, years, leapYears, weekday) {
-    // this.days = days;
+  constructor(days, months, years, leapYears, weekday, addLeapYear) {
+    this.days = days;
     this.months = months;
-    // this.years = years;
+    this.years = years;
     this.leapYears = leapYears;
     this.weekday = weekday;
+    this.addLeapYear = addLeapYear;
   }
 
     leapYear(year) {
@@ -42,19 +43,35 @@ export default class WeekdayChecker {
       this.years = year - 1969;
     }
 
+    checkLeapYear() {
+      this.addLeapYear = 0;
+      let firstPlusYear = 994;
+      let firstMinusYear = 466;
+      let daysBeyond = (this.months + (this.years * 365) + this.days);
+      if ((this.months + (this.years * 365) + this.days) > firstPlusYear) {
+        this.addLeapYear += 1;
+      } 
+    }
+
       weekdayEquation() {
-        if (this.years <= 1969 && this.months === 0 && this.days < 0 || this.years <= 1969 && this.months < 0) {
-          this.weekday = (this.months + (this.years * 365) + this.days) % 7 * (-1);
+        if (this.years <= 0 && this.months <= 0 && this.days < 0 || this.years <= 0 && this.months < 0) {
+          this.weekday = (this.months + (this.years * 365) + this.days + this.addLeapYear) % 7 * (-1);
         }
         else {
-          this.weekday = (this.months + (this.years * 365) + this.days) % 7;
+          this.weekday = (this.months + (this.years * 365) + this.days + this.addLeapYear) % 7;
       }
     }
+
+    
+
+    // 2/29/68-6/9/69 - 466 days 995 days - 1461
+
+
       
     // if 
   //  Next leap year added on Feb 29th, 1972, in 995 days
-  //  Next leap year subtracted on Feb 28th, 1968, minus 485 days
-  //  Every leap year added or subtracted every 1460 days
+  //  Next leap year subtracted on Feb 28th, 1968, minus 466 days
+  //  Every leap year added or subtracted every 1461 days
 
    
   //   dayOfMonth (day) {
