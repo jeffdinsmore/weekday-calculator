@@ -17,22 +17,25 @@ export default class WeekdayChecker {
 
     monthCheck(month) {
       this.months = 0;
-      
       if (month > 6) {
         month = month - 6;
-        const daysOfMonth = [30,31,31,30,31,30,31,31,28,31,30,31];
+        const daysOfMonth = [30,31,31,30,31,30,31];
         for (let i=0; i < month; i++){
           this.months += daysOfMonth[i];
         }
       } else {
         month = 6 - month;
-        const daysOfMonthReverse = [31,30,31,28,31,31,30,31,30,31,31,30];
+        const daysOfMonthReverse = [31,30,31,28,31];
         for (let i=0; i < month; i++){
           this.months -= daysOfMonthReverse[i];
         }
       }
 
    }
+  //  Next leap year added on Feb 29th, 1972, in 995 days
+  //  Next leap year subtracted on Feb 28th, 1968, minus 485 days
+  //  Every leap year added or subtracted every 1460 days
+
    
   //   dayOfMonth (day) {
       
