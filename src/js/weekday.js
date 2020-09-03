@@ -1,10 +1,11 @@
 // Business Logic
 export default class WeekdayChecker {
-  constructor(days, months, years, leapYears) {
+  constructor(days, months, years, leapYears, weekday) {
     // this.days = days;
     this.months = months;
     // this.years = years;
     this.leapYears = leapYears;
+    this.weekday = weekday;
   }
 
     leapYear(year) {
@@ -30,8 +31,12 @@ export default class WeekdayChecker {
           this.months -= daysOfMonthReverse[i];
         }
       }
+    }
 
-   }
+      weekdayEquation() {
+        this.weekday = (this.months + this.years + this.days) % 7;
+      }
+   
   //  Next leap year added on Feb 29th, 1972, in 995 days
   //  Next leap year subtracted on Feb 28th, 1968, minus 485 days
   //  Every leap year added or subtracted every 1460 days
