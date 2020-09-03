@@ -15,7 +15,7 @@ export default class WeekdayChecker {
         this.leapYears = false;
       }
     }
-
+  
     monthCheck(month) {
       this.months = 0;
       if (month > 6) {
@@ -31,6 +31,14 @@ export default class WeekdayChecker {
           this.months -= daysOfMonthReverse[i];
         }
       }
+    }
+
+    dayCheck(day) {
+      this.days = day - 9;
+    }
+
+    yearCheck(year) {
+      this.years = year - 1969;
     }
 
       weekdayEquation() {

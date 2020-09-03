@@ -19,5 +19,9 @@ describe('WeekdayChecker', () => {
     weekdayChecker.monthCheck(4);
     expect(weekdayChecker.months).toEqual(-61);
   });
-  
+  test ('Should take inputted day and subtract 9 from it', () => {
+    const weekdayChecker = new WeekdayChecker();
+    weekdayChecker.dayCheck(12);
+    expect(weekdayChecker.days).toEqual(3);
+  });
 });
