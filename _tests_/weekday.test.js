@@ -8,6 +8,12 @@ describe('WeekdayChecker', () => {
     expect(weekdayChecker.leapYears).toBe(true);
   });
 
+  test('should check if the inputted year is not a leap year', () => {
+    const weekdayChecker = new WeekdayChecker();
+    weekdayChecker.leapYear(2001);
+    expect(weekdayChecker.leapYears).toBe(false);
+  });
+
   test('should check if the inputted day of month if greater than June, will add the days of the months greater than the set day of month', () => {
     const weekdayChecker = new WeekdayChecker();
     weekdayChecker.monthCheck(12);
