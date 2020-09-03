@@ -2,6 +2,7 @@ import WeekdayChecker from '../src/js/weekday.js';
 
 describe('WeekdayChecker', () => {
   const weekdayChecker = new WeekdayChecker();
+  
   test('should check if the inputted year is a leap year', () => {
     weekdayChecker.leapYear(2000);
     expect(weekdayChecker.leapYears).toBe(true);
@@ -18,19 +19,24 @@ describe('WeekdayChecker', () => {
   });
 
   test('should check if the inputted day of month if smaller than June, will subtract the days of the months smaller than the set day of month', () => {
-    weekdayChecker.monthCheck(4);
-    expect(weekdayChecker.months).toEqual(-61);
+    weekdayChecker.monthCheck(5);
+    expect(weekdayChecker.months).toEqual(-31);
   });
 
   test ('Should take inputted day and subtract 9 from it', () => {
-    weekdayChecker.dayCheck(12);
-    expect(weekdayChecker.days).toEqual(3);
+    weekdayChecker.dayCheck(9);
+    expect(weekdayChecker.days).toEqual(0);
   });
 
   test ('Should take inputted year and if greater than, subtract 1969 from it', () => {
-    weekdayChecker.yearCheck(1972);
-    expect(weekdayChecker.years).toEqual(3);
+    weekdayChecker.yearCheck(1969);
+    expect(weekdayChecker.years).toEqual(0);
   });
 
+  test('Should multiply this.years by 365, then add this.months, this.years, and this.days, to equal this.weekday', () =>{
+    weekdayChecker.weekdayEquation();
+    expect(weekdayChecker.weekday).toEqual(0);
+  });
+    
 
 });

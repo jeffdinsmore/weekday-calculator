@@ -18,7 +18,7 @@ export default class WeekdayChecker {
   
     monthCheck(month) {
       this.months = 0;
-      if (month > 6) {
+      if (month >= 6) {
         month = month - 6;
         const daysOfMonth = [30,31,31,30,31,30,31];
         for (let i=0; i < month; i++){
@@ -38,13 +38,20 @@ export default class WeekdayChecker {
     }
 
     yearCheck(year) {
+      
       this.years = year - 1969;
     }
 
       weekdayEquation() {
-        this.weekday = (this.months + this.years + this.days) % 7;
+        if (this.years <= 1969 && this.months === 0 && this.days < 0 || this.years <= 1969 && this.months < 0) {
+          this.weekday = (this.months + (this.years * 365) + this.days) % 7 * (-1);
+        }
+        else {
+          this.weekday = (this.months + (this.years * 365) + this.days) % 7;
       }
-   
+    }
+      
+    // if 
   //  Next leap year added on Feb 29th, 1972, in 995 days
   //  Next leap year subtracted on Feb 28th, 1968, minus 485 days
   //  Every leap year added or subtracted every 1460 days
