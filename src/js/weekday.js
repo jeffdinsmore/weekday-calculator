@@ -28,8 +28,15 @@ export default class WeekdayChecker {
       } else {
         month = 6 - month;
         const daysOfMonthReverse = [31,30,31,28,31];
-        for (let i=0; i < month; i++){
-          this.months -= daysOfMonthReverse[i];
+        if (month === 4 && this.days === 20) {
+          const daysOfMonthReverse2 = [31,30,31,29,31];
+          for (let i=0; i < month; i++){
+            this.months -= daysOfMonthReverse2[i];
+          }
+        } else {
+          for (let i=0; i < month; i++){
+            this.months -= daysOfMonthReverse[i];
+          }
         }
       }
     }
@@ -47,10 +54,14 @@ export default class WeekdayChecker {
       this.addLeapYear = 0;
       let firstPlusYear = 994;
       let firstMinusYear = 466;
+      let leapYearsAfter = 1460;
       let daysBeyond = (this.months + (this.years * 365) + this.days);
-      if ((this.months + (this.years * 365) + this.days) > firstPlusYear) {
+      if ((this.months + (this.years * 365) + this.days) > firstPlusYear && daysBeyond < 1460) {
         this.addLeapYear += 1;
-      } 
+      } else if (daysBeyond >= (firstPlusYear + leapYearsAfter)) {
+        this.addLeapYear += 1 + (Math.floor((daysBeyond-995) / 1460));
+      }
+      // 1 + Math.floor((daysBeyond-994) / 1460)
     }
 
       weekdayEquation() {
@@ -63,7 +74,7 @@ export default class WeekdayChecker {
     }
 
     
-
+    // for every 1460 days after first leapyear, add 1 to this.addLeapYear
     // 2/29/68-6/9/69 - 466 days 995 days - 1461
 
 

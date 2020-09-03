@@ -24,23 +24,23 @@ describe('WeekdayChecker', () => {
   });
 
   test ('Should take inputted day and subtract 9 from it', () => {
-    weekdayChecker.dayCheck(28);
+    weekdayChecker.dayCheck(29);
     expect(weekdayChecker.days).toEqual(19);
   });
 
   test ('Should take inputted year and if greater than, subtract 1969 from it', () => {
-    weekdayChecker.yearCheck(1973);
-    expect(weekdayChecker.years).toEqual(4);
+    weekdayChecker.yearCheck(2020);
+    expect(weekdayChecker.years).toEqual(9);
   });
   
   test('should add one day to the weekday equation after 995 days', () => {
     weekdayChecker.checkLeapYear();
-    expect(weekdayChecker.addLeapYear).toEqual(1);
+    expect(weekdayChecker.addLeapYear).toEqual(0);
   })
   
   test('Should multiply this.years by 365, then add this.months, this.years, and this.days, to equal this.weekday', () =>{
     weekdayChecker.weekdayEquation();
-    expect(weekdayChecker.weekday).toEqual(2);
+    expect(weekdayChecker.weekday).toEqual(7);
   });
 
 });
