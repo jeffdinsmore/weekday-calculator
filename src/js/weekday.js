@@ -15,13 +15,23 @@ export default class WeekdayChecker {
       }
     }
 
-    monthCheck(day) {
+    monthCheck(month) {
       this.months = 0;
-      day = day - 5;
-      const daysOfMonth = [30,31,31,30,31,30,31,31,28,31,30,31];
-      for(let i=0; i < day; i++){
-        this.months += daysOfMonth[i];
+      
+      if (month > 6) {
+        month = month - 6;
+        const daysOfMonth = [30,31,31,30,31,30,31,31,28,31,30,31];
+        for (let i=0; i < month; i++){
+          this.months += daysOfMonth[i];
+        }
+      } else {
+        month = 6 - month;
+        const daysOfMonthReverse = [31,30,31,28,31,31,30,31,30,31,31,30];
+        for (let i=0; i < month; i++){
+          this.months -= daysOfMonthReverse[i];
+        }
       }
+
    }
    
   //   dayOfMonth (day) {
