@@ -28,7 +28,7 @@ describe('WeekdayChecker', () => {
   });
 
   test ('Should take inputted year and if greater than, subtract 1969 from it', () => {
-    weekdayChecker.yearCheck(1971);
+    weekdayChecker.yearCheck(1972);
     expect(weekdayChecker.years).toEqual(3);
   });
 
