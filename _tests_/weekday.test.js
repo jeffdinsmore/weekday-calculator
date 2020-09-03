@@ -30,7 +30,7 @@ describe('WeekdayChecker', () => {
 
   test ('Should take inputted year and if greater than, subtract 1969 from it', () => {
     weekdayChecker.yearCheck(1973);
-    expect(weekdayChecker.years).toEqual(7);
+    expect(weekdayChecker.years).toEqual(4);
   });
   
   test('should add one day to the weekday equation after 995 days', () => {
@@ -40,7 +40,7 @@ describe('WeekdayChecker', () => {
   
   test('Should multiply this.years by 365, then add this.months, this.years, and this.days, to equal this.weekday', () =>{
     weekdayChecker.weekdayEquation();
-    expect(weekdayChecker.weekday).toEqual(7);
+    expect(weekdayChecker.weekday).toEqual(2);
   });
 
 });
